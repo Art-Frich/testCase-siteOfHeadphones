@@ -31,14 +31,16 @@
   </header>
 
   <main class="products">
-    <section class="cards products_type_headphones">
-      <!-- корректнее было бы h2, но иных заголовков на страничке не будет, а для поискового бота h1 важен -->
-      <h1 class="cards__title">Наушники</h1>
+    <section class="cards products_type_my-basket">
+      <h1 class="products-title">Корзина</h1>
       <ul class="cards__grid"></ul>
     </section>
-    <section class="cards products_type_wireless-headphones">
-      <h2 class="cards__title">Беспроводные наушники</h2>
-      <ul class="cards__grid"></ul>
+    <section class="result-container products__result">
+      <div class="result-container__text">
+        <h2 class="result-container__title"></h2>
+        <span class="result-container__price-counter"></span>
+      </div>
+      <button class="result-container__btn">Перейти к оформлению</button>
     </section>
   </main>
 
@@ -106,19 +108,24 @@
   <template class="template">
     <li class="cards__grid-item">
       <div class="card">
-        <img src="#" alt="Изображение" class="card__photo" />
-        <div class="card__figcaption">
-          <div class="card__figcaption_line_one">
-            <h2 class="card__title text-overflow"></h2>
+        <div class="card__column">
+          <img src="#" alt="Изображение" class="card__photo" />
+          <div class="card__item-count-manage">
+            <button class="card__decrement-count-item"></button>
+            <span class="card__counter-item"></span>
+            <button class="card__increment-count-item"></button>
+          </div>
+        </div>
+        <div class="card__column">
+          <div class="card__manage">
+            <button class="card__btn-delete"></button>
+          </div>
+          <div class="card__main-info">
+            <h2 class="card__title"></h2>
             <span class="card__price"></span>
           </div>
-          <div class="card__figcaption_line_two">
-            <span class="card__rate"></span>
-            <button
-              class="card__buy button-zeroing transition-opacity transition-background"
-              type="button"
-              name="купить"
-            >Купить</button>
+          <div class="card__result-price-container">
+            <span class="card__result-price"></span>
           </div>
         </div>
       </div>
