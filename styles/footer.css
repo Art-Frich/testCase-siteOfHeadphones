@@ -1,0 +1,108 @@
+.footer{
+  min-width: 1110px;
+  min-height: 149px;
+  box-sizing: border-box;
+  padding: 29px;
+
+  display: flex;
+  justify-content: space-between;
+
+  background: #FFFFFF;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 30px 30px 0px 0px;
+}
+
+.footer__column{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.footer__author{
+  padding: 0;
+  margin: 0;
+
+  font-family: 'Montserrat';
+  line-height: 25px;
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.footer__column-links{
+  font-size: 0;
+}
+
+.footer__column-links_type_languages{
+  display: flex;
+  justify-content: flex-start;
+  gap: 17px;
+}
+
+.footer__column-link{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 21px;
+  color: #000000;
+  text-decoration: none;
+
+  opacity: 1;
+  transition: opacity 0.25s ease-in-out;
+}
+
+.footer__column-link:hover{
+  opacity: 0.6;
+}
+
+.footer__column-link_type_lang{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  color: #101010;
+}
+
+.footer__column-link_active{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 18px;
+  color: #FFA542;
+}
+
+.footer__column-links_type_sections{
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.footer__column-links_type_other{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 35px;
+}
+
+.footer__column-links_type_social{
+  display: flex;
+  align-items: center;
+  gap: 17.9px;
+}
+
+.footer__languages-icon{
+  display: inline-block;
+  width: 18px;
+  aspect-ratio: 1/1;
+  background: url(../images/planet.svg) no-repeat center / contain;
+}
+
+.footer__social-icon{
+  width: 31px;
+  object-fit: cover;
+}
+

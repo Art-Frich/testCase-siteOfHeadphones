@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./styles/index.css" />
+    <link rel="stylesheet" href="../styles/basket.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,7 +15,7 @@
   </head>
   <body class="page">
     <header class="header">
-      <img class="logo" src="./images/QPICK.svg" alt="Логотип сайта QPICK" />
+      <img class="logo" src="../images/QPICK.svg" alt="Логотип сайта QPICK" />
       <ul class="header__buttons html-ul">
         <li class="header__buttons-element">
           <a href="#" class="header__buttons-link">
@@ -26,7 +26,7 @@
           </a>
         </li>
         <li class="header__buttons-element">
-          <a href="./pages/basket.html" class="header__buttons-link">
+          <a href="./basket.html" class="header__buttons-link">
             <button
               class="header__button header__button_type_trash button-zeroing html-interactive"
             ></button>
@@ -37,20 +37,22 @@
     </header>
 
     <main class="products">
-      <section class="cards products_type_headphones">
-        <!-- корректнее было бы h2, но иных заголовков на страничке не будет, а для поискового бота h1 важен -->
-        <h1 class="cards__title">Наушники</h1>
-        <ul class="cards__grid html-ul"></ul>
+      <section class="cards products_type_my-basket">
+        <h1 class="products-title">Корзина</h1>
+        <ul class="cards__grid"></ul>
       </section>
-      <section class="cards products_type_wireless-headphones">
-        <h2 class="cards__title">Беспроводные наушники</h2>
-        <ul class="cards__grid html-ul"></ul>
+      <section class="result-container products__result">
+        <div class="result-container__text">
+          <h2 class="result-container__title"></h2>
+          <span class="result-container__price-counter"></span>
+        </div>
+        <button class="result-container__btn">Перейти к оформлению</button>
       </section>
     </main>
 
     <footer class="footer">
       <div class="footer__column">
-        <img class="logo" src="./images/QPICK.svg" alt="Логотип сайта QPICK" />
+        <img class="logo" src="../images/QPICK.svg" alt="Логотип сайта QPICK" />
         <p class="footer__author">&copy;Арт Фрич</p>
       </div>
       <div class="footer__column">
@@ -85,7 +87,7 @@
               <img
                 class="footer__social-icon"
                 alt="Иконка Вконтакте"
-                src="./images/VK.svg"
+                src="../images/VK.svg"
               />
             </a>
           </li>
@@ -94,7 +96,7 @@
               <img
                 class="footer__social-icon"
                 alt="Иконка Телеграм"
-                src="./images/Telegram.svg"
+                src="../images/Telegram.svg"
               />
             </a>
           </li>
@@ -103,7 +105,7 @@
               <img
                 class="footer__social-icon"
                 alt="Иконка WhatsApp"
-                src="./images/Whatsapp.svg"
+                src="../images/Whatsapp.svg"
               />
             </a>
           </li>
@@ -114,28 +116,28 @@
     <template class="template">
       <li class="cards__grid-item">
         <div class="card">
-          <img src="#" alt="Изображение " class="card__photo" />
-          <div class="card__figcaption">
-            <div class="card__figcaption-line">
-              <h2 class="card__title text-overflow"></h2>
-              <span class="card__price"></span>
-              <span class="card__old-price">&#8381;</span>
+          <div class="card__column">
+            <img src="#" alt="Изображение" class="card__photo" />
+            <div class="card__item-count-manage">
+              <button class="card__decrement-count-item"></button>
+              <span class="card__counter-item"></span>
+              <button class="card__increment-count-item"></button>
             </div>
-            <div class="card__figcaption-line">
-              <span class="card__rate"></span>
-              <button
-                class="card__buy button-zeroing transition-background"
-                type="button"
-                name="купить"
-              >
-                Купить
-              </button>
+          </div>
+          <div class="card__column">
+            <div class="card__manage">
+              <button class="card__btn-delete"></button>
+            </div>
+            <div class="card__main-info">
+              <h2 class="card__title"></h2>
+              <span class="card__price"></span>
+            </div>
+            <div class="card__result-price-container">
+              <span class="card__result-price"></span>
             </div>
           </div>
         </div>
       </li>
     </template>
-    <script src="./scripts/cards.js" type="module"></script>
-    <script src="./scripts/index.js" type="module"></script>
   </body>
 </html>

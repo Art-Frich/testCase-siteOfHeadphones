@@ -1,0 +1,5 @@
+@import url(../vendor/normalize.css);
+@import url(./mixes.css);
+@import url(./header.css);
+@import url(./main-basket.css);
+@import url(./footer.css);

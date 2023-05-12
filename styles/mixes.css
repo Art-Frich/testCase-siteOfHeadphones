@@ -1,0 +1,42 @@
+.logo{
+  /* гарантия отсутствия случайных отступов от браузера у img */
+  display: block;
+  width: 85px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.page{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #EAEAEA;
+}
+
+.button-zeroing {
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.html-ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.html-interactive{
+  opacity: 1;
+  transition: opacity 0.25s ease-in-out;
+}
+
+.html-interactive:hover {
+  opacity: 0.6;
+}
+
+.transition-background:hover{
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #000;
+  color: #fff;
+}
