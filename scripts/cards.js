@@ -42,3 +42,27 @@ export const cardsHeadphonesData = [
     rate: '4.5',
   },
 ]
+
+export const cardsWirelessHeadphonesData = [
+  {
+    name: 'Apple AirPods',
+    url: './images/card4.png',
+    currentPrice: '9527',
+    oldPrice: '',
+    rate: '4.7',
+  },
+  {
+    name: 'GERLAX GH-04',
+    url: './images/card5.png',
+    currentPrice: '6527',
+    oldPrice: '',
+    rate: '4.7',
+  },
+  {
+    name: 'BOROFONE BO4',
+    url: './images/card6.png',
+    currentPrice: '7527',
+    oldPrice: '',
+    rate: '4.57',
+  },
+]
