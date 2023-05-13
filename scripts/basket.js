@@ -58,7 +58,7 @@ function createCard( dataCard ){
     sumPrice.textContent = Number( sumPrice.textContent ) + Number( cardPrice.textContent );
     updateBasketValue( true );
     dataCard.count++;
-    window.sessionStorage.setItem( dataCard.key, JSON.stringify( dataCard ) );
+    dataCardUpdate();
   })
 
   btnDecrementItems.addEventListener( 'click', () => {
@@ -68,12 +68,16 @@ function createCard( dataCard ){
       sumPrice.textContent -= cardPrice.textContent;
       updateBasketValue( false );
       dataCard.count--;
-      window.sessionStorage.setItem( dataCard.key, JSON.stringify( dataCard ) );
+      dataCardUpdate();
     }
   })
 
   function updateResultPrice(){
-    resultPrice.textContent = data.currentPrice * dataCard.count;
+    resultPrice.textContent = data.currentPrice * itemCount.textContent;
+  }
+
+  function dataCardUpdate() {
+    window.sessionStorage.setItem( dataCard.key, JSON.stringify( dataCard ) );
   }
 
   return card;
@@ -107,22 +111,6 @@ function deleteCard( card, resultPrice, key, countDel ) {
   sumPrice.textContent -= resultPrice.textContent;
   window.sessionStorage.removeItem( key );
 }
-
-// function updateCardResult(){
-
-// }
-
-// function updateCountInBasket(){
-
-// }
-
-// function increaseSumPriceCards( resultPrice ){
-//   sumPrice.textContent += resultPrice.textContent;
-// }
-
-// function decreadeSumPriceCards( resultPrice ) {
-//   sumPrice.textContent -= resultPrice.textContent;
-// }
 
 /**
  * 
