@@ -22,7 +22,7 @@ function generateCards( container ){
 }
 
 /**
- * 
+ * P.S. по хорошему надо это в отдельный класс выкинуть
  * @param {object} data - объект с данными конкретной карточки
  * @returns - готовая карточка
  */
@@ -46,7 +46,7 @@ function createCard( dataCard ){
   cardTitle.textContent = data.name;
   cardPrice.textContent = data.currentPrice;
   itemCount.textContent = dataCard.count;
-  resultPrice.textContent = data.currentPrice * dataCard.count;
+  updateResultPrice();
 
   btnCardDel.addEventListener( 'click', () => {
     deleteCard( card, resultPrice, dataCard.key, dataCard.count );
@@ -54,11 +54,9 @@ function createCard( dataCard ){
   
   btnIncrementItems.addEventListener( 'click', () => {
     itemCount.textContent++;
-    resultPrice.textContent = data.currentPrice * itemCount.textContent;
+    updateResultPrice();
     sumPrice.textContent = Number( sumPrice.textContent ) + Number( cardPrice.textContent );
-    let countBefore = window.sessionStorage.getItem('countProducts');
-    window.sessionStorage.setItem('countProducts', ++countBefore );
-    setProductsInBasket();
+    updateBasketValue( true );
     dataCard.count++;
     window.sessionStorage.setItem( dataCard.key, JSON.stringify( dataCard ) );
   })
@@ -66,17 +64,31 @@ function createCard( dataCard ){
   btnDecrementItems.addEventListener( 'click', () => {
     if ( itemCount.textContent > 0 ) {
       itemCount.textContent--;
-      resultPrice.textContent = data.currentPrice * itemCount.textContent;
+      updateResultPrice();
       sumPrice.textContent -= cardPrice.textContent;
-      let countBefore = window.sessionStorage.getItem('countProducts');
-      window.sessionStorage.setItem('countProducts', --countBefore );
-      setProductsInBasket();
+      updateBasketValue( false );
       dataCard.count--;
       window.sessionStorage.setItem( dataCard.key, JSON.stringify( dataCard ) );
     }
   })
 
+  function updateResultPrice(){
+    resultPrice.textContent = data.currentPrice * dataCard.count;
+  }
+
   return card;
+}
+
+/**
+ * Увеличивает или уменьшает на 1 значение в корзине
+ * @param {Boolean} plusBoolean 
+ */
+function updateBasketValue( plusBoolean ){
+  let countBefore = window.sessionStorage.getItem('countProducts');
+  plusBoolean
+    ? window.sessionStorage.setItem('countProducts', ++countBefore )
+    : window.sessionStorage.setItem('countProducts', --countBefore );
+  setProductsInBasket();
 }
 
 /**

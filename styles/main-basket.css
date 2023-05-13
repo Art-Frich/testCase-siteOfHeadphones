@@ -7,6 +7,10 @@
 
 .products{
   max-width: 1110px;
+  /* 88px - высота header
+  149px - высота footer
+  40px - margin products */
+  min-height: calc(100vh - 88px - 149px - 40px);
   width: 100vw;
   margin: 20px 0;
 
@@ -294,13 +298,5 @@
     flex-direction: column;
     align-items: center;
     gap: 20px;
-  }
-
-  .cards__grid-item{
-    /* margin: auto; */
-  }
-
-  .result-container{
-    /* margin: auto; */
   }
 }
