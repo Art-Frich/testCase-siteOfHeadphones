@@ -175,7 +175,7 @@
 
 .card__decrement-count-item{
   width: 35px;
-  aspect-ratio: 1/1;
+  height: 35px;
   background: url(../images/btnDecrement.svg) no-repeat center / contain;
 }
 
@@ -214,7 +214,7 @@
 
 .card__btn-delete{
   width: 21px;
-  aspect-ratio: 1/1;
+  height: 21px;
   background: url(../images/trashCard.svg) no-repeat center / contain;
 }
 

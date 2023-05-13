@@ -67,7 +67,7 @@
 
   display: block;
   width: 17.4px;
-  aspect-ratio: 1/1;
+  height: 17.4px;
   background: #FFA542;
   border-radius: 50%;
 
@@ -84,6 +84,6 @@
 
 .header__button_type_trash {
   width: 23.2px;
-  aspect-ratio: 1/1;
+  height: 23.2px;
   background: url(../images/trash.svg) no-repeat center / cover;
 }
