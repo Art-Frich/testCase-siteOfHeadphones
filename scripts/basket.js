@@ -2,19 +2,23 @@ const basketLink = document.querySelector( '.header__buttons-link_type_trash' );
 const basketCounter = basketLink.querySelector( '.header__button-counter' );
 const cardsContainer = document.querySelector( '.cards__grid' );
 const templateCard = document.querySelector('.template');
+const sumPrice = document.querySelector( '.result-container__price-counter' );
 
 /**
  * 
  * @param {HTMLElement} container - контейнер для карточек
  */
 function generateCards( container ){
+  let resPrice = 0;
   const l = window.sessionStorage.length;
   for ( let i = 0; i < l; i++ ){
     let dataElement =  JSON.parse( window.sessionStorage.getItem( sessionStorage.key(i) ) );
     if ( dataElement.count ){
+      resPrice += dataElement.data.currentPrice * dataElement.count;
       container.append( createCard( dataElement ) );
     }
   }
+  sumPrice.textContent = resPrice;
 }
 
 /**
@@ -24,12 +28,13 @@ function generateCards( container ){
  */
 function createCard( dataCard ){
   // ищем элементы карточки
-  const card = getCardElement();
+  let card = getCardElement();
   const cardImg = card.querySelector( '.card__photo' );
   const cardTitle = card.querySelector( '.card__title' );
   const cardPrice = card.querySelector( '.card__price' );
   const itemCount = card.querySelector( '.card__counter-item' );
   const resultPrice = card.querySelector( '.card__result-price' );
+  const btnCardDel = card.querySelector( '.card__btn-delete' );
 
   const data = dataCard.data;
 
@@ -41,21 +46,28 @@ function createCard( dataCard ){
   itemCount.textContent = dataCard.count;
   resultPrice.textContent = data.currentPrice * dataCard.count;
 
-  //объект количества таких карточек в корзине
-  // const dataObject = {
-  //   count: 0,
-  //   data: data
-  // }
-
-  // cardBtnBuy.addEventListener( 'click', () => {
-  //   dataObject.count++;
-  //   window.sessionStorage.setItem( `card${data.id}`, JSON.stringify( dataObject ));
-  //   const currentCountProducts = window.sessionStorage.getItem('countProducts');
-  //   window.sessionStorage.setItem( `countProducts`, `${Number(currentCountProducts) + 1}`);
-  //   basketCounter.textContent++;
-  // } )
+  btnCardDel.addEventListener( 'click', () => {
+    deleteCard( card, resultPrice, dataCard.key, dataCard.count );
+  });
 
   return card;
+}
+
+/**
+ * 
+ * @param {HTMLElement} card - разметка карточки
+ * @param {HTMLElement} resultPrice - контейнер с суммарной стоимостью позиции
+ */
+function deleteCard( card, resultPrice, key, countDel ) {
+  card.remove();
+  card = null;
+
+  const countBefore = window.sessionStorage.getItem('countProducts');
+  window.sessionStorage.setItem('countProducts', countBefore - countDel );
+  setProductsInBasket();
+
+  sumPrice.textContent -= resultPrice.textContent;
+  window.sessionStorage.removeItem( key );
 }
 
 /**
@@ -72,7 +84,7 @@ function getCardElement() {
 
 function setProductsInBasket(){
   const count = window.sessionStorage.getItem('countProducts');
-  basketCounter.textContent = count;
+  basketCounter.textContent = count || 0;
 }
 
 setProductsInBasket();

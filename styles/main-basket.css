@@ -41,6 +41,8 @@
 
 .result-container__text{
   margin: 22px 22px 15px 22px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .result-container__title{
@@ -51,8 +53,20 @@
   font-weight: 600;
   font-size: 15px;
   line-height: 18px;
-
   color: #000;
+}
+
+.result-container__price-counter{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+  color: #000;
+}
+
+.result-container__price-counter::before{
+  content: '\20BD  ';
 }
 
 .result-container__btn{

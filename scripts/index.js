@@ -49,21 +49,34 @@ function createCard( data ){
     : cardOldPrice.textContent = '';
   cardRate.textContent = data.rate;
 
-  //объект количества таких карточек в корзине
+  setAddToBasketOnClick( data, cardBtnBuy );
+
+  return card;
+}
+
+/**
+ * 
+ * @param {object} data - объект с данными конкретной карточки
+ * @param {HTMLElement} cardBtnBuy
+ */
+function setAddToBasketOnClick( data, cardBtnBuy ) {
+  let countThisCards;
+  try {
+    countThisCards = JSON.parse( window.sessionStorage.getItem( `card${data.id}` ) ).count
+  } catch {}
   const dataObject = {
-    count: 0,
+    count: countThisCards || 0,
+    key: `card${data.id}`,
     data: data
   }
 
   cardBtnBuy.addEventListener( 'click', () => {
     dataObject.count++;
-    window.sessionStorage.setItem( `card${data.id}`, JSON.stringify( dataObject ));
+    window.sessionStorage.setItem( dataObject.key, JSON.stringify( dataObject ));
     const currentCountProducts = window.sessionStorage.getItem('countProducts');
     window.sessionStorage.setItem( `countProducts`, `${Number(currentCountProducts) + 1}`);
     basketCounter.textContent++;
   } )
-
-  return card;
 }
 
 /**
@@ -77,9 +90,10 @@ function getCardElement() {
     .cloneNode( true );
 }
 
+
 function setProductsInBasket(){
   const count = window.sessionStorage.getItem('countProducts');
-  basketCounter.textContent = count;
+  basketCounter.textContent = count || 0;
 }
 
 generateCards( cardsHeadphonesData, cardsHeadphonesList );
