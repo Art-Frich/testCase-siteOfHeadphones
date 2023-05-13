@@ -26,7 +26,7 @@
           </a>
         </li>
         <li class="header__buttons-element">
-          <a href="./basket.html" class="header__buttons-link">
+          <a href="./basket.html" class="header__buttons-link header__buttons-link_type_trash">
             <button
               class="header__button header__button_type_trash button-zeroing html-interactive"
             ></button>
@@ -37,16 +37,16 @@
     </header>
 
     <main class="products">
+      <h1 class="products__title">Корзина</h1>
       <section class="cards products_type_my-basket">
-        <h1 class="products-title">Корзина</h1>
-        <ul class="cards__grid"></ul>
-      </section>
-      <section class="result-container products__result">
-        <div class="result-container__text">
-          <h2 class="result-container__title"></h2>
-          <span class="result-container__price-counter"></span>
-        </div>
-        <button class="result-container__btn">Перейти к оформлению</button>
+        <ul class="cards__grid html-ul"></ul>
+        <section class="result-container products__result">
+          <div class="result-container__text">
+            <h2 class="result-container__title">ИТОГО</h2>
+            <span class="result-container__price-counter"></span>
+          </div>
+          <button class="result-container__btn button-zeroing html-interactive">Перейти к оформлению</button>
+        </section>
       </section>
     </main>
 
@@ -116,17 +116,17 @@
     <template class="template">
       <li class="cards__grid-item">
         <div class="card">
-          <div class="card__column">
+          <div class="card__first-column">
             <img src="#" alt="Изображение" class="card__photo" />
             <div class="card__item-count-manage">
-              <button class="card__decrement-count-item"></button>
+              <button class="card__decrement-count-item button-zeroing html-interactive"></button>
               <span class="card__counter-item"></span>
-              <button class="card__increment-count-item"></button>
+              <button class="card__increment-count-item button-zeroing html-interactive"></button>
             </div>
           </div>
-          <div class="card__column">
-            <div class="card__manage">
-              <button class="card__btn-delete"></button>
+          <div class="card__two-column">
+            <div class="card__manage"> 
+              <button class="card__btn-delete button-zeroing"></button>
             </div>
             <div class="card__main-info">
               <h2 class="card__title"></h2>

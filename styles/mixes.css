@@ -35,8 +35,6 @@
 }
 
 .transition-background:hover{
-  padding: 10px;
-  border-radius: 10px;
   background-color: #000;
   color: #fff;
 }

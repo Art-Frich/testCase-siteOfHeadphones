@@ -58,6 +58,8 @@ function createCard( data ){
   cardBtnBuy.addEventListener( 'click', () => {
     dataObject.count++;
     window.sessionStorage.setItem( `card${data.id}`, JSON.stringify( dataObject ));
+    const currentCountProducts = window.sessionStorage.getItem('countProducts');
+    window.sessionStorage.setItem( `countProducts`, `${Number(currentCountProducts) + 1}`);
     basketCounter.textContent++;
   } )
 
@@ -75,5 +77,11 @@ function getCardElement() {
     .cloneNode( true );
 }
 
+function setProductsInBasket(){
+  const count = window.sessionStorage.getItem('countProducts');
+  basketCounter.textContent = count;
+}
+
 generateCards( cardsHeadphonesData, cardsHeadphonesList );
 generateCards( cardsWirelessHeadphonesData, cardsWirelessHeadphonesList );
+setProductsInBasket();
