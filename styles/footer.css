@@ -84,6 +84,10 @@
   opacity: 0.6;
 }
 
+.footer__column-link:active{
+  opacity: 1;
+}
+
 .footer__column-link_type_lang{
   font-family: 'Montserrat';
   font-style: normal;

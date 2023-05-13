@@ -120,6 +120,7 @@
   line-height: 21px;
   text-align: center;
   color: #fff;
+  cursor: pointer;
 }
 
 .card{
@@ -160,8 +161,8 @@
 .card__photo{
   max-height: 136px;
   min-width: 150px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  -o-object-fit: contain;
+     object-fit: contain;
   -o-object-position: center;
      object-position: center;
 }
@@ -184,6 +185,7 @@
   width: 35px;
   height: 35px;
   background: url(../images/btnDecrement.svg) no-repeat center / contain;
+  cursor: pointer;
 }
 
 .card__counter-item{
@@ -199,6 +201,7 @@
   width: 35px;
   height: 35px;
   background: url(../images/btnIncrement.svg) no-repeat center / contain;
+  cursor: pointer;
 }
 
 .card__two-column{
@@ -223,6 +226,7 @@
   width: 21px;
   height: 21px;
   background: url(../images/trashCard.svg) no-repeat center / contain;
+  cursor: pointer;
 }
 
 .card__main-info{
