@@ -59,6 +59,7 @@
 .active-btn-black-white:active{
   opacity: 1;
   background-image: linear-gradient(#fff, #000 15% 85%, #fff);
+  color: #fff;
 }
 
 .active-btn-opacity:active{
