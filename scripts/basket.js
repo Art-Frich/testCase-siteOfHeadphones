@@ -35,6 +35,8 @@ function createCard( dataCard ){
   const itemCount = card.querySelector( '.card__counter-item' );
   const resultPrice = card.querySelector( '.card__result-price' );
   const btnCardDel = card.querySelector( '.card__btn-delete' );
+  const btnIncrementItems = card.querySelector( '.card__increment-count-item' );
+  const btnDecrementItems = card.querySelector( '.card__decrement-count-item' );
 
   const data = dataCard.data;
 
@@ -49,6 +51,30 @@ function createCard( dataCard ){
   btnCardDel.addEventListener( 'click', () => {
     deleteCard( card, resultPrice, dataCard.key, dataCard.count );
   });
+  
+  btnIncrementItems.addEventListener( 'click', () => {
+    itemCount.textContent++;
+    resultPrice.textContent = data.currentPrice * itemCount.textContent;
+    sumPrice.textContent = Number( sumPrice.textContent ) + Number( cardPrice.textContent );
+    let countBefore = window.sessionStorage.getItem('countProducts');
+    window.sessionStorage.setItem('countProducts', ++countBefore );
+    setProductsInBasket();
+    dataCard.count++;
+    window.sessionStorage.setItem( dataCard.key, JSON.stringify( dataCard ) );
+  })
+
+  btnDecrementItems.addEventListener( 'click', () => {
+    if ( itemCount.textContent > 0 ) {
+      itemCount.textContent--;
+      resultPrice.textContent = data.currentPrice * itemCount.textContent;
+      sumPrice.textContent -= cardPrice.textContent;
+      let countBefore = window.sessionStorage.getItem('countProducts');
+      window.sessionStorage.setItem('countProducts', --countBefore );
+      setProductsInBasket();
+      dataCard.count--;
+      window.sessionStorage.setItem( dataCard.key, JSON.stringify( dataCard ) );
+    }
+  })
 
   return card;
 }
@@ -69,6 +95,22 @@ function deleteCard( card, resultPrice, key, countDel ) {
   sumPrice.textContent -= resultPrice.textContent;
   window.sessionStorage.removeItem( key );
 }
+
+// function updateCardResult(){
+
+// }
+
+// function updateCountInBasket(){
+
+// }
+
+// function increaseSumPriceCards( resultPrice ){
+//   sumPrice.textContent += resultPrice.textContent;
+// }
+
+// function decreadeSumPriceCards( resultPrice ) {
+//   sumPrice.textContent -= resultPrice.textContent;
+// }
 
 /**
  * 
