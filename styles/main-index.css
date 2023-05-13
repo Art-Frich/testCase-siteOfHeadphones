@@ -6,7 +6,8 @@
 */
 
 .products{
-  min-width: 1110px;
+  max-width: 1110px;
+  width: 100vw;
   margin: 20px 0;
 }
 
@@ -184,4 +185,10 @@
   -o-transition: color .15s linear, background-color .15s linear;
 
   transition: color .15s linear, background-color .15s linear;
+}
+
+@media screen and (max-width: 1110px) {
+  .cards__title{
+    margin: auto;
+  }
 }
