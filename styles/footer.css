@@ -149,6 +149,6 @@
 
 .footer__social-icon{
   width: 31px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  -o-object-fit: contain;
+     object-fit: contain;
 }

@@ -57,7 +57,7 @@
 .header__button_type_favorite{
   width: 22px;
   height: 20px;
-  background: url(../images/favorites.svg) no-repeat center / cover;
+  background: url(../images/favorites.svg) no-repeat center / contain;
 }
 
 .header__button-counter{
@@ -85,5 +85,5 @@
 .header__button_type_trash {
   width: 23.2px;
   height: 23.2px;
-  background: url(../images/trash.svg) no-repeat center / cover;
+  background: url(../images/trash.svg) no-repeat center / contain;
 }

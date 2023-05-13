@@ -190,7 +190,7 @@
 
 .card__increment-count-item{
   width: 35px;
-  aspect-ratio: 1/1;
+  height: 35px;
   background: url(../images/btnIncrement.svg) no-repeat center / contain;
 }
 

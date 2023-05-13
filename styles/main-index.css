@@ -165,7 +165,7 @@
   width: 23px;
   height: 23px;
   margin-right: 10px;
-  background: url(../images/star.svg) no-repeat center / cover;
+  background: url(../images/star.svg) no-repeat center / contain;
 }
 
 .card__buy{
